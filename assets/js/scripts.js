@@ -57,7 +57,7 @@ let pts2 = 0;
 let icn1 = "";
 let icn2 = "";
 
-window.onload = clearHistory();
+window.onload = endGame();
 
 
 
