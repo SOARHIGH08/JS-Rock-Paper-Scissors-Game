@@ -59,14 +59,8 @@ let icn2 = "";
 
 window.onload = endGame();
 
-
-
-
 // start the game
 startGameBut.addEventListener("click", clearHistory);
-
-
-
 
 scissorP1But.addEventListener("click", function(){
     attackIcon1.innerHTML = handScissor;
@@ -175,6 +169,7 @@ function getResult(icn1, icn2, result) {
     historyItem.innerHTML = `${icn1} &nbsp &nbsp vs &nbsp &nbsp ${icn2} &nbsp &nbsp ${result}<hr>`;
 
     historyList.insertBefore(historyItem, historyList.firstChild);
+
 }
 
 
@@ -226,12 +221,12 @@ function clearHistory() {
     attackIcon1.innerHTML = "";
     attackIcon2.innerHTML = "";
 
-    while (historyList.firstChild) {
+
+    let recordCount = historyList.childElementCount;
+    if (recordCount > 0) {
+        for (let x = recordCount; x > 0; recordCount = historyList.childElementCount) {
         historyList.removeChild(historyList.firstChild);
+        }
     }
 }
-
-
-
-
 
