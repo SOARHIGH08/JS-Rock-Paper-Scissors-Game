@@ -62,6 +62,61 @@ window.onload = endGame();
 // start the game
 startGameBut.addEventListener("click", clearHistory);
 
+function clearHistory() {
+    result = "";
+    pts1 = 0;
+    pts2 = 0;
+    score1.innerHTML = 0;
+    score2.innerHTML = 0;
+    
+    endGameContainer.setAttribute("style", "display: none");
+    startGameContainer.setAttribute("style", "display: block");
+    startGameBut.innerHTML = "Reset"
+    endGameBut.removeAttribute("style", "display: none");
+
+    attackIcon1.innerHTML = "";
+    attackIcon2.innerHTML = "";
+
+
+    let recordCount = historyList.childElementCount;
+    if (recordCount > 0) {
+        for (let x = recordCount; x > 0; recordCount = historyList.childElementCount) {
+        historyList.removeChild(historyList.firstChild);
+        }
+    }
+}
+
+// end the game
+endGameBut.addEventListener("click", endGame);
+
+function endGame() {
+    startGameContainer.setAttribute("style", "display: none");
+    endGameContainer.setAttribute("style", "display: flex");
+    startGameBut.innerHTML = "Start";
+    endGameBut.setAttribute("style", "display: none");
+    rollingHands();   
+}
+
+function rollingHands() {
+    icons = [handRock, handPaper, handScissor];
+    let currentIndex1 = 0;
+    let currentIndex2 = 1;
+    let currentIndex3 = 2;
+
+    function showNextImage() {
+        iconsDiv1.innerHTML = icons[currentIndex1];
+        iconsDiv2.innerHTML = icons[currentIndex2];
+        iconsDiv3.innerHTML = icons[currentIndex3];
+        currentIndex1 = (currentIndex1 + 1) % icons.length;
+        currentIndex2 = (currentIndex2 + 1) % icons.length;
+        currentIndex3 = (currentIndex3 + 1) % icons.length;
+    }
+
+    showNextImage();
+
+    setInterval(showNextImage, 500);
+}
+
 scissorP1But.addEventListener("click", function(){
     attackIcon1.innerHTML = handScissor;
     attack1 = 1;
@@ -171,62 +226,3 @@ function getResult(icn1, icn2, result) {
     historyList.insertBefore(historyItem, historyList.firstChild);
 
 }
-
-
-// end the game
-endGameBut.addEventListener("click", endGame);
-
-function endGame() {
-    startGameContainer.setAttribute("style", "display: none");
-    endGameContainer.setAttribute("style", "display: flex");
-    startGameBut.innerHTML = "Start";
-    endGameBut.setAttribute("style", "display: none");
-    rollingHands();
-    
-}
-
-function rollingHands() {
-    icons = [handRock, handPaper, handScissor];
-    let currentIndex1 = 0;
-    let currentIndex2 = 1;
-    let currentIndex3 = 2;
-
-    function showNextImage() {
-        iconsDiv1.innerHTML = icons[currentIndex1];
-        iconsDiv2.innerHTML = icons[currentIndex2];
-        iconsDiv3.innerHTML = icons[currentIndex3];
-        currentIndex1 = (currentIndex1 + 1) % icons.length;
-        currentIndex2 = (currentIndex2 + 1) % icons.length;
-        currentIndex3 = (currentIndex3 + 1) % icons.length;
-    }
-
-    showNextImage();
-
-    setInterval(showNextImage, 500);
-}
-
-
-function clearHistory() {
-    result = "";
-    pts1 = 0;
-    pts2 = 0;
-    score1.innerHTML = 0;
-    score2.innerHTML = 0;
-    
-    endGameContainer.setAttribute("style", "display: none");
-    startGameContainer.setAttribute("style", "display: block");
-    startGameBut.innerHTML = "Reset"
-    endGameBut.removeAttribute("style", "display: none");
-
-    attackIcon1.innerHTML = "";
-    attackIcon2.innerHTML = "";
-
-
-    let recordCount = historyList.childElementCount;
-    if (recordCount > 0) {
-        for (let x = recordCount; x > 0; recordCount = historyList.childElementCount) {
-        historyList.removeChild(historyList.firstChild);
-        }
-    }
-}
-
