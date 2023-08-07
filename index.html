@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/css/style.css"><!-- icons -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    
+    <title>RPS Game</title>
+</head>
+<body>
+    <main>
+        <h1>Rock Paper Scissor Game</h1>
+        <div class="start-game-container" id="startGameContainer">
+            
+            <div class="player-cont">
+                <div class="player"> 
+                    <span class="hero">You</span>
+                    <div class="score">
+                        <p>Score: </p>
+                        <p id="score1">0</p>
+                    </div>
+                    <div class="attack-icon" id="attackIcon1"></div> 
+                </div>
+
+                <div class="player">
+                    <span class="hero">AI</span>
+                    <div class="score">
+                        <p>Score: </p>
+                        <p id="score2">0</p>
+                    </div>
+                    <div class="attack-icon" id="attackIcon2"></div>
+                </div>
+            </div>
+            
+            
+            <div class="power-buts">
+                <div id="scissorP1But"></div>
+                <div id="paperP1But"></div>
+                <div id="rockP1But"></div>
+            </div>
+            <div class="history-cont">
+                <div>HISTORY</div>
+                <ul class="history-list" id="historyList"></ul>
+            </div>
+        </div>
+        
+        <div class="end-game-container" id="endGameContainer">
+            <div class="icon-container">
+                <div id="iconsDiv1"></div>
+                <div id="iconsDiv2"></div>
+                <div id="iconsDiv3"></div>
+            </div>
+        </div>
+        
+        <div class="button-container">
+            <button id="startGameBut">Start</button>
+            <button id="endGameBut">End</button>
+        </div>
+    </main>
+
+    <script src="assets/js/scripts.js"></script>
+</body>
+</html>
