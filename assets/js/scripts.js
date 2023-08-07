@@ -16,6 +16,11 @@ let iconsDiv1 = document.getElementById("iconsDiv1");
 let iconsDiv2 = document.getElementById("iconsDiv2");
 let iconsDiv3 = document.getElementById("iconsDiv3");
 let historyList = document.getElementById("historyList");
+let p1 = document.getElementById("p1");
+let p2 = document.getElementById("p2");
+let dialogBox = document.getElementById("dialogBox");
+let greet = document.getElementById("greet");
+let message = document.getElementById("message");
 
 let handScissor = '<iconify-icon icon="fa6-solid:hand-scissors"></iconify-icon>';
 let handPaper = '<iconify-icon icon="fa-solid:hand-paper"></iconify-icon>';
@@ -76,11 +81,17 @@ function clearHistory() {
 
     attackIcon1.innerHTML = "";
     attackIcon2.innerHTML = "";
+    
+    p1.style.boxShadow = "none";
+    p2.style.boxShadow = "none";
+    p1.style.backgroundColor = "transparent";
+    p2.style.backgroundColor = "transparent";
 
 
     let recordCount = historyList.childElementCount;
+    
     if (recordCount > 0) {
-        for (let x = recordCount; x > 0; recordCount = historyList.childElementCount) {
+        for (let x = recordCount; x > 0; x--) {
         historyList.removeChild(historyList.firstChild);
         }
     }
@@ -123,14 +134,26 @@ scissorP1But.addEventListener("click", function(){
     attack2 = Math.floor(Math.random() * 3) + 1;
     if (attack2 == 1) {
         result = "It is a tie!";
+        p1.style.boxShadow = "none";
+        p2.style.boxShadow = "none";
+        p1.style.backgroundColor = "transparent";
+        p2.style.backgroundColor = "transparent";
         icon = handScissor;
     } else if (attack2 == 2) {
         result = "You win!";
+        p1.style.boxShadow = "0 5px 50px aqua";
+        p2.style.boxShadow = "none";
+        p1.style.backgroundColor = "aqua";
+        p2.style.backgroundColor = "transparent";
         pts1 = pts1 + 1;
         icon = handPaper;
     } else if (attack2 == 3) {
         result = "You lose!";
         pts2 = pts2 + 1;
+        p1.style.boxShadow = "none";
+        p2.style.boxShadow = "0 5px 50px aqua";
+        p1.style.backgroundColor = "transparent";
+        p2.style.backgroundColor = "aqua";
         icon = handRock;
     } 
 
@@ -146,14 +169,26 @@ paperP1But.addEventListener("click", function(){
     attack2 = Math.floor(Math.random() * 3) + 1;
     if (attack2 == 2) {
         result = "It is a tie!";
+        p1.style.boxShadow = "none";
+        p2.style.boxShadow = "none";
+        p1.style.backgroundColor = "transparent";
+        p2.style.backgroundColor = "transparent";
         icon = handPaper;
     } else if (attack2 == 3) {
         result = "You win!";
         pts1 = pts1 + 1;
+        p1.style.boxShadow = "0 5px 50px aqua";
+        p2.style.boxShadow = "none";
+        p1.style.backgroundColor = "aqua";
+        p2.style.backgroundColor = "transparent";
         icon = handRock;
     } else if (attack2 == 1) {
         result = "You lose!";
         pts2 = pts2 + 1;
+        p1.style.boxShadow = "none";
+        p2.style.boxShadow = "0 5px 50px aqua";
+        p1.style.backgroundColor = "transparent";
+        p2.style.backgroundColor = "aqua";
         icon = handScissor;
     } 
     
@@ -171,14 +206,26 @@ rockP1But.addEventListener("click", function(){
     attack2 = Math.floor(Math.random() * 3) + 1;
     if (attack2 == 3) {
         result = "It is a tie!";
+        p1.style.boxShadow = "none";
+        p2.style.boxShadow = "none";
+        p1.style.backgroundColor = "transparent";
+        p2.style.backgroundColor = "transparent";
         icon = handRock;
     } else if (attack2 == 1) {
         result = "You win!";
         pts1 = pts1 + 1;
+        p1.style.boxShadow = "0 5px 50px aqua";
+        p2.style.boxShadow = "none";
+        p1.style.backgroundColor = "aqua";
+        p2.style.backgroundColor = "transparent";
         icon = handScissor;
     } else if (attack2 == 2) {
         result = "You lose!";
         pts2 = pts2 + 1;
+        p1.style.boxShadow = "none";
+        p2.style.boxShadow = "0 5px 50px aqua";
+        p1.style.backgroundColor = "transparent";
+        p2.style.backgroundColor = "aqua";
         icon = handPaper;
     } 
     
@@ -224,5 +271,30 @@ function getResult(icn1, icn2, result) {
     historyItem.innerHTML = `${icn1} &nbsp &nbsp vs &nbsp &nbsp ${icn2} &nbsp &nbsp ${result}<hr>`;
 
     historyList.insertBefore(historyItem, historyList.firstChild);
+    
+    winner(pts1, pts2);
 
 }
+
+function winner(pts1, pts2) {
+    let win = 5;
+    if (pts1 == win || pts2 == win) {
+        dialogBox.setAttribute("style", "display: flex");
+        
+        if (pts1 == win) {
+            greet.innerHTML = "Congratulations, you WIN!"
+            message.innerHTML = pts1 + " - " + pts2;
+        }
+        
+        if (pts2 == win) {
+            greet.innerHTML = "Better luck next time!"
+            message.innerHTML = pts1 + " - " + pts2;
+        }
+    }
+    
+}
+
+dialogBox.addEventListener("click", function(){
+    dialogBox.setAttribute("style", "display: none");
+    endGame();
+});
