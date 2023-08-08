@@ -271,7 +271,7 @@ function getResult(icn1, icn2, result) {
     historyItem.innerHTML = `${icn1} &nbsp &nbsp vs &nbsp &nbsp ${icn2} &nbsp &nbsp ${result}<hr>`;
 
     historyList.insertBefore(historyItem, historyList.firstChild);
-    
+    alert(result);
     winner(pts1, pts2);
 
 }
