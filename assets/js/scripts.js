@@ -16,6 +16,9 @@ let iconsDiv1 = document.getElementById("iconsDiv1");
 let iconsDiv2 = document.getElementById("iconsDiv2");
 let iconsDiv3 = document.getElementById("iconsDiv3");
 let historyList = document.getElementById("historyList");
+let raceInput = document.getElementById("raceInput");
+
+
 let p1 = document.getElementById("p1");
 let p2 = document.getElementById("p2");
 let dialogBox = document.getElementById("dialogBox");
@@ -66,9 +69,9 @@ let icn2 = "";
 window.onload = endGame();
 
 // start the game
-startGameBut.addEventListener("click", clearHistory);
+startGameBut.addEventListener("click", startGame);
 
-function clearHistory() {
+function startGame() {
     result = "";
     pts1 = 0;
     pts2 = 0;
@@ -86,7 +89,6 @@ function clearHistory() {
     
     p1.style.backgroundColor = "transparent";
     p2.style.backgroundColor = "transparent";
-
 
     let recordCount = historyList.childElementCount;
     
@@ -259,7 +261,7 @@ function getResult(icn1, icn2, result) {
 }
 
 function winner(pts1, pts2) {
-    let win = 5;
+    let win = 3;
     if (pts1 == win || pts2 == win) {
         dialogBox.setAttribute("style", "display: flex");
         
