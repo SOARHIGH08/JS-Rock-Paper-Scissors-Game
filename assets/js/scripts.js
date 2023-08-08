@@ -252,7 +252,7 @@ function getResult(icn1, icn2, result) {
     attackIcon2.innerHTML = icon;
     
     let historyItem = document.createElement("li");
-    historyItem.innerHTML = `${icn1} &nbsp &nbsp vs &nbsp &nbsp ${icn2} &nbsp &nbsp ${result}<hr>`;
+    historyItem.innerHTML = icn1 + "&nbsp &nbsp vs &nbsp &nbsp" + icn2 + "&nbsp &nbsp" + result + "<hr>";
 
     historyList.insertBefore(historyItem, historyList.firstChild);
     alert(result);
