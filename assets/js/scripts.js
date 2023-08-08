@@ -21,6 +21,7 @@ let p2 = document.getElementById("p2");
 let dialogBox = document.getElementById("dialogBox");
 let greet = document.getElementById("greet");
 let message = document.getElementById("message");
+let raceP = document.getElementById("raceP");
 
 let handScissor = '<iconify-icon icon="fa6-solid:hand-scissors"></iconify-icon>';
 let handPaper = '<iconify-icon icon="fa-solid:hand-paper"></iconify-icon>';
@@ -75,6 +76,7 @@ function clearHistory() {
     score2.innerHTML = 0;
     
     endGameContainer.setAttribute("style", "display: none");
+    raceP.setAttribute("style", "display: none");
     startGameContainer.setAttribute("style", "display: block");
     startGameBut.innerHTML = "Reset"
     endGameBut.removeAttribute("style", "display: none");
