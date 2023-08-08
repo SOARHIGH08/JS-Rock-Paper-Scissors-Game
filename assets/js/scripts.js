@@ -103,6 +103,7 @@ endGameBut.addEventListener("click", endGame);
 
 function endGame() {
     startGameContainer.setAttribute("style", "display: none");
+    raceP.setAttribute("style", "display: block");
     endGameContainer.setAttribute("style", "display: flex");
     startGameBut.innerHTML = "Start";
     endGameBut.setAttribute("style", "display: none");
