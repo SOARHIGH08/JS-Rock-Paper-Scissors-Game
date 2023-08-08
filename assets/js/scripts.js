@@ -84,8 +84,6 @@ function clearHistory() {
     attackIcon1.innerHTML = "";
     attackIcon2.innerHTML = "";
     
-    p1.style.boxShadow = "none";
-    p2.style.boxShadow = "none";
     p1.style.backgroundColor = "transparent";
     p2.style.backgroundColor = "transparent";
 
@@ -136,15 +134,11 @@ scissorP1But.addEventListener("click", function(){
     attack2 = Math.floor(Math.random() * 3) + 1;
     if (attack2 == 1) {
         result = "It is a tie!";
-        p1.style.boxShadow = "none";
-        p2.style.boxShadow = "none";
         p1.style.backgroundColor = "transparent";
         p2.style.backgroundColor = "transparent";
         icon = handScissor;
     } else if (attack2 == 2) {
         result = "You win!";
-        p1.style.boxShadow = "0 5px 50px aqua";
-        p2.style.boxShadow = "none";
         p1.style.backgroundColor = "aqua";
         p2.style.backgroundColor = "transparent";
         pts1 = pts1 + 1;
@@ -152,8 +146,6 @@ scissorP1But.addEventListener("click", function(){
     } else if (attack2 == 3) {
         result = "You lose!";
         pts2 = pts2 + 1;
-        p1.style.boxShadow = "none";
-        p2.style.boxShadow = "0 5px 50px aqua";
         p1.style.backgroundColor = "transparent";
         p2.style.backgroundColor = "aqua";
         icon = handRock;
@@ -171,24 +163,18 @@ paperP1But.addEventListener("click", function(){
     attack2 = Math.floor(Math.random() * 3) + 1;
     if (attack2 == 2) {
         result = "It is a tie!";
-        p1.style.boxShadow = "none";
-        p2.style.boxShadow = "none";
         p1.style.backgroundColor = "transparent";
         p2.style.backgroundColor = "transparent";
         icon = handPaper;
     } else if (attack2 == 3) {
         result = "You win!";
         pts1 = pts1 + 1;
-        p1.style.boxShadow = "0 5px 50px aqua";
-        p2.style.boxShadow = "none";
         p1.style.backgroundColor = "aqua";
         p2.style.backgroundColor = "transparent";
         icon = handRock;
     } else if (attack2 == 1) {
         result = "You lose!";
         pts2 = pts2 + 1;
-        p1.style.boxShadow = "none";
-        p2.style.boxShadow = "0 5px 50px aqua";
         p1.style.backgroundColor = "transparent";
         p2.style.backgroundColor = "aqua";
         icon = handScissor;
@@ -208,24 +194,18 @@ rockP1But.addEventListener("click", function(){
     attack2 = Math.floor(Math.random() * 3) + 1;
     if (attack2 == 3) {
         result = "It is a tie!";
-        p1.style.boxShadow = "none";
-        p2.style.boxShadow = "none";
         p1.style.backgroundColor = "transparent";
         p2.style.backgroundColor = "transparent";
         icon = handRock;
     } else if (attack2 == 1) {
         result = "You win!";
         pts1 = pts1 + 1;
-        p1.style.boxShadow = "0 5px 50px aqua";
-        p2.style.boxShadow = "none";
         p1.style.backgroundColor = "aqua";
         p2.style.backgroundColor = "transparent";
         icon = handScissor;
     } else if (attack2 == 2) {
         result = "You lose!";
         pts2 = pts2 + 1;
-        p1.style.boxShadow = "none";
-        p2.style.boxShadow = "0 5px 50px aqua";
         p1.style.backgroundColor = "transparent";
         p2.style.backgroundColor = "aqua";
         icon = handPaper;
