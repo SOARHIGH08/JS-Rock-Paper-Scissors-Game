@@ -16,7 +16,6 @@ let iconsDiv1 = document.getElementById("iconsDiv1");
 let iconsDiv2 = document.getElementById("iconsDiv2");
 let iconsDiv3 = document.getElementById("iconsDiv3");
 let historyList = document.getElementById("historyList");
-let raceInput = document.getElementById("raceInput");
 
 
 let p1 = document.getElementById("p1");
