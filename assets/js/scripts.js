@@ -23,9 +23,9 @@ let greet = document.getElementById("greet");
 let message = document.getElementById("message");
 let raceP = document.getElementById("raceP");
 
-let handScissor = '<iconify-icon icon="fa6-solid:hand-scissors"></iconify-icon>';
-let handPaper = '<iconify-icon icon="fa-solid:hand-paper"></iconify-icon>';
-let handRock = '<iconify-icon icon="fa-solid:hand-rock"></iconify-icon>';
+let handScissor = '<iconify-icon icon="noto:scissors" rotate="180deg"></iconify-icon>';
+let handPaper = '<iconify-icon icon="icon-park:newspaper-folding"></iconify-icon>';
+let handRock = '<iconify-icon icon="noto:rock"></iconify-icon>';
 
 let handScissorBut = handScissor;
 let handPaperBut = handPaper;
